@@ -1,7 +1,7 @@
 {
   "name": "@revolist/revogrid-react",
   "sideEffects": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React wrapper for RevoGrid component",
   "license": "MIT",
   "repository": {
@@ -20,9 +20,9 @@
     "tsc": "tsc -p .",
     "rollup": "rollup -c"
   },
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/revogrid.js",
+  "module": "./dist/revogrid.js",
+  "types": "./dist/revogrid.d.ts",
   "files": [
     "dist/"
   ],
