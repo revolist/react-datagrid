@@ -1,0 +1,51 @@
+{
+  "name": "@revolist/revogrid-react",
+  "sideEffects": false,
+  "version": "1.0.0",
+  "private": true,
+  "description": "React wrapper for RevoGrid component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revolist/revogrid-react.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p .",
+    "rollup": "rollup -c"
+  },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@types/jest": "latest",
+    "@types/node": "latest",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "jest": "latest",
+    "jest-dom": "latest",
+    "np": "^3.1.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@revolist/revogrid": "latest"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ]
+  }
+}
