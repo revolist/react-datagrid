@@ -1,7 +1,7 @@
 {
   "name": "@revolist/revogrid-react",
   "sideEffects": false,
-  "version": "1.0.1",
+  "version": "1.3.1",
   "description": "React wrapper for RevoGrid component",
   "license": "MIT",
   "repository": {
