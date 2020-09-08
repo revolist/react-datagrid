@@ -36,7 +36,8 @@
     "np": "^3.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "@stencil/store": "^1.3.0"
   },
   "dependencies": {
     "@revolist/revogrid": "latest"
