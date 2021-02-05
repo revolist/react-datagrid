@@ -36,7 +36,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@revolist/revogrid": "^2.9.2"
+    "@revolist/revogrid": "^2.9.3"
   },
   "peerDependencies": {
     "react": "^16.7.0",
