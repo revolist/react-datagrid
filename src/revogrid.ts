@@ -11,6 +11,7 @@ export const RevoGrid = /*@__PURE__*/createReactComponent<JSX.RevoGrid, HTMLRevo
 export const RevogrClipboard = /*@__PURE__*/createReactComponent<JSX.RevogrClipboard, HTMLRevogrClipboardElement>('revogr-clipboard');
 export const RevogrData = /*@__PURE__*/createReactComponent<JSX.RevogrData, HTMLRevogrDataElement>('revogr-data');
 export const RevogrEdit = /*@__PURE__*/createReactComponent<JSX.RevogrEdit, HTMLRevogrEditElement>('revogr-edit');
+export const RevogrFilterPanel = /*@__PURE__*/createReactComponent<JSX.RevogrFilterPanel, HTMLRevogrFilterPanelElement>('revogr-filter-panel');
 export const RevogrFocus = /*@__PURE__*/createReactComponent<JSX.RevogrFocus, HTMLRevogrFocusElement>('revogr-focus');
 export const RevogrHeader = /*@__PURE__*/createReactComponent<JSX.RevogrHeader, HTMLRevogrHeaderElement>('revogr-header');
 export const RevogrOrderEditor = /*@__PURE__*/createReactComponent<JSX.RevogrOrderEditor, HTMLRevogrOrderEditorElement>('revogr-order-editor');
