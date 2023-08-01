@@ -82,20 +82,20 @@ Millions of cells and thousands columns easy and efficiently.
 
 With NPM:
 ```bash
-npm i @revolist/revogrid-react --save;
+npm i @revolist/react-datagrid --save;
 ```
 
 With Yarn:
 
 ```bash
-yarn add @revolist/revogrid-react;
+yarn add @revolist/react-datagrid;
 ```
 
 
 ```jsx
 import React from "react";
 import { defineCustomElements } from "@revolist/revogrid/loader"; // webcomponent definition loader 
-import { RevoGrid } from "@revolist/revogrid-react";
+import { RevoGrid } from "@revolist/react-datagrid";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -125,4 +125,4 @@ export default class App extends React.Component {
 }
 ```
 
-Check [Sandbox](https://codesandbox.io/s/revogrid-react-g3ygo?file=/src/App.js) for real live sample.
+Check [Sandbox](https://codesandbox.io/s/react-datagrid-g3ygo?file=/src/App.js) for real live sample.

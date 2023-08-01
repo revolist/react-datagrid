@@ -16,6 +16,7 @@ export const RevogrFocus = /*@__PURE__*/createReactComponent<JSX.RevogrFocus, HT
 export const RevogrHeader = /*@__PURE__*/createReactComponent<JSX.RevogrHeader, HTMLRevogrHeaderElement>('revogr-header');
 export const RevogrOrderEditor = /*@__PURE__*/createReactComponent<JSX.RevogrOrderEditor, HTMLRevogrOrderEditorElement>('revogr-order-editor');
 export const RevogrOverlaySelection = /*@__PURE__*/createReactComponent<JSX.RevogrOverlaySelection, HTMLRevogrOverlaySelectionElement>('revogr-overlay-selection');
+export const RevogrRowHeaders = /*@__PURE__*/createReactComponent<JSX.RevogrRowHeaders, HTMLRevogrRowHeadersElement>('revogr-row-headers');
 export const RevogrScrollVirtual = /*@__PURE__*/createReactComponent<JSX.RevogrScrollVirtual, HTMLRevogrScrollVirtualElement>('revogr-scroll-virtual');
 export const RevogrTempRange = /*@__PURE__*/createReactComponent<JSX.RevogrTempRange, HTMLRevogrTempRangeElement>('revogr-temp-range');
 export const RevogrViewportScroll = /*@__PURE__*/createReactComponent<JSX.RevogrViewportScroll, HTMLRevogrViewportScrollElement>('revogr-viewport-scroll');

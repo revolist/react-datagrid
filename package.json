@@ -1,12 +1,12 @@
 {
-  "name": "@revolist/revogrid-react",
+  "name": "@revolist/react-datagrid",
   "sideEffects": false,
-  "version": "3.0.52",
-  "description": "React wrapper for RevoGrid component",
+  "version": "3.6.16",
+  "description": "React excel like datagrid component",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/revolist/revogrid-react.git"
+    "url": "https://github.com/revolist/react-datagrid.git"
   },
   "bugs": {
     "url": "https://github.com/revolist/revogrid/issues"
@@ -28,20 +28,20 @@
     "dist/"
   ],
   "devDependencies": {
-    "@types/node": "^14.14.32",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.1",
-    "np": "^3.1.0",
-    "parcel-bundler": "^1.12.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "typescript": "^4.2.3"
+    "@types/node": "^20.4.5",
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
+    "np": "^8.0.4",
+    "parcel-bundler": "^1.12.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@stencil/core": "^2.4.0",
-    "@revolist/revogrid": "^3.0.52"
+    "@stencil/core": "^2.17.3",
+    "@revolist/revogrid": "^3.6.16"
   },
   "alias": {
-    "@revolist/revogrid-react": "./dist/revogrid.js"
+    "@revolist/react-datagrid": "./dist/revogrid.js"
   }
 }
