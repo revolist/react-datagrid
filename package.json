@@ -1,7 +1,7 @@
 {
   "name": "@revolist/react-datagrid",
   "sideEffects": false,
-  "version": "3.6.17",
+  "version": "3.7.0",
   "description": "React excel like datagrid component",
   "license": "MIT",
   "repository": {
