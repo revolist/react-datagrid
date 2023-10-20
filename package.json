@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@stencil/core": "^2.17.3",
-    "@revolist/revogrid": "^3.6.16"
+    "@revolist/revogrid": "^3.7.0"
   },
   "alias": {
     "@revolist/react-datagrid": "./dist/revogrid.js"
