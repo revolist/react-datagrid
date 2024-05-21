@@ -1,0 +1,34 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import dts from 'vite-plugin-dts';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), dts({ include: ['lib'] })],
+  build: {
+    minify: false,
+    copyPublicDir: false,
+    lib: {
+      entry: resolve(__dirname, 'lib/index.ts'), // Library entry file
+      name: 'ReactDatagrid',
+    },
+    rollupOptions: {
+      input: {
+        main: 'lib/index.ts',
+      },
+      external: [/^react(\/.*)?$/, /node_modules/, /@revolist\/revogrid/],
+      output: {
+        exports: 'named',
+      },
+    },
+  },
+  server: {
+    open: '/demo/index.html',
+  },
+  resolve: {
+    alias: {
+      '@revolist/react-datagrid': resolve(__dirname, './lib'),
+    }
+  },
+});
