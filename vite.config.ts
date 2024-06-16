@@ -20,6 +20,13 @@ export default defineConfig({
       external: [/^react(\/.*)?$/, /node_modules/, /@revolist\/revogrid/],
       output: {
         exports: 'named',
+        globals: {
+          'react': 'React',
+          'react-dom/client': 'ReactDOMClient',
+          'react/jsx-runtime': 'ReactJSXRuntime',
+          '@revolist/revogrid': 'Revogrid',
+          '@revolist/revogrid/loader': 'RevogridLoader',
+        },
       },
     },
   },
@@ -29,6 +36,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@revolist/react-datagrid': resolve(__dirname, './lib'),
-    }
+    },
   },
 });
