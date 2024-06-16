@@ -6,6 +6,7 @@ import { createReactComponent } from './react-component-lib';
 import type { JSX } from '@revolist/revogrid';
 export type * from '@revolist/revogrid';
 import { defineCustomElements } from '@revolist/revogrid/loader';
+export { type EditorType, EditorAdapter } from './editor.adapter';
 
 export const RevoGrid = /*@__PURE__*/ createReactComponent<
   JSX.RevoGrid,
@@ -17,4 +18,3 @@ export {
   type RenderedComponent,
 } from './renderer';
 export { Editor } from './editor';
-export { type EditorType, EditorAdapter } from './editor.adapter';

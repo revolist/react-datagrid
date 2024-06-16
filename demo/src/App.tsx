@@ -1,5 +1,11 @@
-import { RevoGrid, Template, Editor, type EditorType } from '@revolist/react-datagrid';
-import { ColumnDataSchemaModel, Editors } from '@revolist/revogrid';
+import {
+  RevoGrid,
+  Template,
+  Editor,
+  type EditorType,
+  type ColumnDataSchemaModel,
+  type Editors,
+} from '@revolist/react-datagrid';
 import { createContext, useContext } from 'react';
 import './App.css';
 
@@ -13,14 +19,18 @@ export const LevelContext = createContext('My custom context to pass to cell');
  */
 const Cell = ({ model, prop }: ColumnDataSchemaModel) => {
   const level = useContext(LevelContext);
-  return <div><strong title={level}>{model[prop]}</strong></div>;
+  return (
+    <div>
+      <strong title={level}>{model[prop]}</strong>
+    </div>
+  );
 };
 
 /**
  * Custom editor component
  */
-const Button = ({ close } : EditorType) => {
-  return <button onClick={close}>Close</button>
+const Button = ({ close }: EditorType) => {
+  return <button onClick={close}>Close</button>;
 };
 
 function App() {
@@ -52,7 +62,7 @@ function App() {
     <>
       <RevoGrid columns={columns} source={source} editors={gridEditors} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

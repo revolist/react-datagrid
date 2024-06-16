@@ -1,7 +1,7 @@
 {
   "name": "@revolist/react-datagrid",
   "sideEffects": false,
-  "version": "4.0.7",
+  "version": "4.0.8",
   "description": "React DataGrid Spreadsheet component with native cell render support",
   "main": "./dist/react-datagrid.umd.js",
   "module": "./dist/react-datagrid.js",
@@ -9,7 +9,8 @@
   "exports": {
     ".": {
       "import": "./dist/react-datagrid.js",
-      "require": "./dist/react-datagrid.umd.cjs"
+      "require": "./dist/react-datagrid.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "type": "module",
