@@ -20,7 +20,7 @@ export const Editor = (EditorComponent: ComponentType<EditorType>): EditorCtr =>
     save: (value: SaveData, preventFocus?: boolean) => void,
     close: (focusNext?: boolean) => void,
   ) {
-    return new EditorAdapter(EditorComponent, column, save, close);
-  } as unknown as EditorCtr;
+    return (new EditorAdapter(EditorComponent, column, save, close));
+  };
 };
 

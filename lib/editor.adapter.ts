@@ -4,6 +4,7 @@ import {
   HyperFunc,
   VNode,
   SaveData,
+  EditorBase,
 } from '@revolist/revogrid';
 import { ReactElement, RenderedComponent, TemplateConstructor } from './renderer';
 import { ComponentType } from 'react';
@@ -14,9 +15,9 @@ export type EditorType = {
   column: ColumnDataSchemaModel;
 } & Partial<EditCell>;
 
-export class EditorAdapter {
+export class EditorAdapter implements EditorBase {
   public element: ReactElement | null = null;
-  public editCell: EditCell | null = null;
+  public editCell?: EditCell;
   private renderedComponent: RenderedComponent<EditorType> | null = null;
 
   constructor(
@@ -52,3 +53,6 @@ export class EditorAdapter {
       });
     }
 }
+
+
+
