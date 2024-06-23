@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const dependencyName = '@revolist/revogrid';
+const localDependencyName = '@revolist/react-datagrid';
 
 // Parse command-line arguments
 const args = minimist(process.argv.slice(2));
@@ -58,7 +59,8 @@ function updatePackageJsonVersion(packageDir, version) {
 function main() {
   const fullPath = path.resolve(__dirname);
   updatePackageJsonVersion(fullPath, newVersion);
-
+  // update demo
+  updatePackageJsonVersion(path.join(fullPath, 'demo'), newVersion, localDependencyName);
   console.log(chalk.blue('Version update complete.'));
 }
 
