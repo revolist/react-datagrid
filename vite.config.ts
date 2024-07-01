@@ -17,13 +17,13 @@ export default defineConfig({
       input: {
         main: 'lib/index.ts',
       },
-      external: [/^react(\/.*)?$/, /node_modules/, /@revolist\/revogrid/],
+      external: [/^react(-dom)?(\/.*)?$/, /node_modules/, /^@revolist\/revogrid(\/.*)?$/],
       output: {
         exports: 'named',
         globals: {
           'react': 'React',
-          'react-dom/client': 'ReactDOMClient',
-          'react/jsx-runtime': 'ReactJSXRuntime',
+          'react-dom/client': 'ReactDOM',
+          'react/jsx-runtime': 'ReactJSXR',
           '@revolist/revogrid': 'Revogrid',
           '@revolist/revogrid/loader': 'RevogridLoader',
         },
