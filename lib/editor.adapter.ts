@@ -9,10 +9,13 @@ import {
 import { ReactElement, RenderedComponent, TemplateConstructor } from './renderer';
 import { ComponentType } from 'react';
 
+/**
+ * Data passed to editor
+ */
 export type EditorType = {
+  column: ColumnDataSchemaModel;
   save: (value: SaveData, preventFocus?: boolean) => void;
   close: (focusNext?: boolean) => void;
-  column: ColumnDataSchemaModel;
 } & Partial<EditCell>;
 
 export class EditorAdapter implements EditorBase {
