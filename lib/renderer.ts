@@ -57,9 +57,11 @@ export const Template = (
       props.addition = addition;
       let lastEl: RenderedComponent<ColumnDataSchemaModel> | null = null;
       return h('span', {
+        key: `${p.prop}-${p.rowIndex}`,
         ref: (el: ReactElement | null) => {
             lastEl = TemplateConstructor(el, ReactComponent, props, lastEl);
-          }
+        }
       });
     };
   };
+  
