@@ -1,9 +1,59 @@
 {
   "name": "@revolist/react-datagrid",
   "sideEffects": false,
-  "version": "3.7.0",
-  "description": "React excel like datagrid component",
-  "license": "MIT",
+  "version": "4.0.50",
+  "description": "React DataGrid Spreadsheet component with native cell render support",
+  "main": "./dist/react-datagrid.umd.cjs",
+  "module": "./dist/react-datagrid.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-datagrid.js",
+      "require": "./dist/react-datagrid.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "release": "npm run build && npm publish --public --tag pre-release",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "revo-grid",
+    "revolist",
+    "csv",
+    "datagrid",
+    "datalist",
+    "datamanager",
+    "editable",
+    "excel",
+    "excel-grid",
+    "export",
+    "fast-grid",
+    "filtering",
+    "grid",
+    "gridjs",
+    "grouping",
+    "infinity-grid",
+    "rangeedit",
+    "reactive",
+    "spreadsheet",
+    "stenciljs",
+    "storybook",
+    "treeview",
+    "virtualgrid",
+    "virtual",
+    "virtual-scroll",
+    "react",
+    "react-grid",
+    "react-datagrid"
+  ],
+  "author": "revolist",
   "repository": {
     "type": "git",
     "url": "https://github.com/revolist/react-datagrid.git"
@@ -12,36 +62,19 @@
     "url": "https://github.com/revolist/revogrid/issues"
   },
   "homepage": "https://github.com/revolist/revogrid#readme",
-  "author": "revolist",
-  "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "rm -rf dist",
-    "compile": "npm run tsc",
-    "tsc": "tsc -p .",
-    "rollup": "rollup -c",
-    "serve": "parcel public/index.html"
-  },
-  "main": "./dist/revogrid.js",
-  "module": "./dist/revogrid.js",
-  "types": "./dist/revogrid.d.ts",
-  "files": [
-    "dist/"
-  ],
-  "devDependencies": {
-    "@types/node": "^20.4.5",
-    "@types/react": "^18.2.18",
-    "@types/react-dom": "^18.2.7",
-    "np": "^8.0.4",
-    "parcel-bundler": "^1.12.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.1.6"
-  },
+  "license": "MIT",
   "dependencies": {
-    "@stencil/core": "^2.17.3",
-    "@revolist/revogrid": "^3.7.0"
+    "@revolist/revogrid": "4.0.50"
   },
-  "alias": {
-    "@revolist/react-datagrid": "./dist/revogrid.js"
+  "devDependencies": {
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@stencil/core": "^4.17.1",
+    "vite": "^5.2.11",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
