@@ -3,7 +3,7 @@
   "sideEffects": false,
   "version": "4.0.41",
   "description": "React DataGrid Spreadsheet component with native cell render support",
-  "main": "./dist/react-datagrid.umd.js",
+  "main": "./dist/react-datagrid.umd.cjs",
   "module": "./dist/react-datagrid.js",
   "types": "./dist/index.d.ts",
   "exports": {
