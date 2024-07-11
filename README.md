@@ -1,3 +1,9 @@
+### 🚨 Repository Notice 🚨
+
+This repo is read-only and will be **deprecated** in v5+ in favor of monorepos. Post issues [here](https://github.com/revolist/revogrid). Happy coding! 🖥️💻
+
+---
+
 <p align="center">
   <a href="https://rv-grid.com">
     <img src="./assets/logo.svg" alt="RevoGrid" height="150" />
@@ -174,11 +180,6 @@ export default App
 
 [Example and guide](https://rv-grid.com/guide/react/)
 
-
-
-## 🚨 Repository Notice 🚨
-
-**TL;DR:** This repo is read-only and will be **deprecated** in v5+ in favor of monorepos. Post issues [here](https://github.com/revolist/revogrid). Happy coding! 🖥️💻
 
 
 ## Versions
