@@ -4,7 +4,7 @@
 import { createReactComponent } from './react-component-lib';
 
 import type { JSX } from '@revolist/revogrid';
-export type * from '@revolist/revogrid';
+export * from '@revolist/revogrid';
 import { defineCustomElements } from '@revolist/revogrid/loader';
 export { type EditorType, EditorAdapter } from './editor.adapter';
 
