@@ -1,6 +1,6 @@
 import { createRoot, Root } from 'react-dom/client';
 import { ComponentType, createElement } from 'react';
-import { HyperFunc, ColumnDataSchemaModel, VNode } from '@revolist/revogrid';
+import { HyperFunc, ColumnDataSchemaModel, VNode, ColumnTemplateProp } from '@revolist/revogrid';
 
 export interface ReactElement extends HTMLElement {
   _root?: Root;
@@ -49,15 +49,15 @@ export function TemplateConstructor<T = ColumnDataSchemaModel>(
  * Render React component in Grid column template.
  */
 export const Template = (
-    ReactComponent: ComponentType<ColumnDataSchemaModel>,
+    ReactComponent: ComponentType<ColumnDataSchemaModel | ColumnTemplateProp>,
     customProps?: any,
   ) => {
-    return (h: HyperFunc<VNode>, p: ColumnDataSchemaModel, addition?: any) => {
+    return (h: HyperFunc<VNode>, p: ColumnDataSchemaModel | ColumnTemplateProp, addition?: any) => {
       const props = customProps ? { ...customProps, ...p } : p;
       props.addition = addition;
       let lastEl: RenderedComponent<ColumnDataSchemaModel> | null = null;
       return h('span', {
-        key: `${p.prop}-${p.rowIndex}`,
+        key: `${p.prop}-${p.rowIndex || 0}`,
         ref: (el: ReactElement | null) => {
             lastEl = TemplateConstructor(el, ReactComponent, props, lastEl);
         }

@@ -3,21 +3,24 @@ import {
   Template,
   Editor,
   type Editors,
+  ColumnRegular,
 } from '@revolist/react-datagrid';
 import './App.css';
 import { Cell } from './CellRenderer';
+import { Header } from './HeaderRenderer';
 import { ButtonEditor } from './CellEditor';
 
 
 function App() {
   // Custom editor name
   const MY_EDITOR = 'custom-editor';
-  const columns = [
+  const columns: ColumnRegular[] = [
     {
       prop: 'name',
       name: 'First',
       // Use custom editor
       editor: MY_EDITOR,
+      columnTemplate: Template(Header),
       cellTemplate: Template(Cell),
     },
     {
