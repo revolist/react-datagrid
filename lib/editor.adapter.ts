@@ -1,20 +1,19 @@
-import {
+import type {
   EditCell,
   ColumnDataSchemaModel,
   HyperFunc,
   VNode,
-  SaveData,
   EditorBase,
 } from '@revolist/revogrid';
 import { ReactElement, RenderedComponent, TemplateConstructor } from './renderer';
-import { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 /**
  * Data passed to editor
  */
 export type EditorType = {
   column: ColumnDataSchemaModel;
-  save: (value: SaveData, preventFocus?: boolean) => void;
+  save: (value: any, preventFocus?: boolean) => void;
   close: (focusNext?: boolean) => void;
 } & Partial<EditCell>;
 
@@ -26,7 +25,7 @@ export class EditorAdapter implements EditorBase {
   constructor(
     private EditorComponent: ComponentType<EditorType>,
     public column: ColumnDataSchemaModel,
-    private save: (value: SaveData, preventFocus?: boolean) => void,
+    private save: (value: any, preventFocus?: boolean) => void,
     private close: (focusNext?: boolean) => void,
   ) {}
 
