@@ -1,12 +1,8 @@
-### 🚨 Repository Notice
-
-Post new issues [here](https://github.com/revolist/revogrid). Happy coding! 💻
-
----
+# React Data Grid adapter for RevoGrid
 
 <p align="center">
   <a href="https://rv-grid.com">
-    <img src="./assets/logo.svg" alt="RevoGrid Data Grid" height="150" />
+    <img src="./assets/logo.svg" alt="React Data Grid" height="150" />
   </a>
 </p>
 
@@ -19,12 +15,10 @@ Post new issues [here](https://github.com/revolist/revogrid). Happy coding! 💻
   <img src="https://sonarcloud.io/api/project_badges/measure?project=revolist_revogrid&metric=alert_status" alt="Sonar Quality Gate"/>
 </p>
 
-#
 
-<h3 align="center">Powerful data grid component built with <a href="https://stenciljs.com" target="_blank">StencilJS</a>.</h3>
+<h3 align="center">Powerful React Data Grid component built on top of <a href="https://github.com/revolist/revogrid" target="_blank">RevoGrid</a>.</h3>
 <p align="center">
 Support Millions of cells and thousands of columns easy and efficiently for fast data rendering. Easy to use.
-  
 </p>
 
 <p align="center">
@@ -119,25 +113,70 @@ Support Millions of cells and thousands of columns easy and efficiently for fast
 
 - **Rich API & Additional Improvements**: Explore hundreds of other small customizations and improvements in [RevoGrid](https://rv-grid.com/).
 
+### Install your React Data Grid
 
-### Usage React
 
 With NPM:
 
 ```bash
-npm i @revolist/react-datagrid --save;
+npm i @revolist/react-datagrid
+```
+
+With PNPM:
+
+```bash
+pnpm add @revolist/react-datagrid
 ```
 
 With Yarn:
 
 ```bash
-yarn add @revolist/react-datagrid;
+yarn add @revolist/react-datagrid
 ```
 
+With Bun:
+
+```bash
+bun add @revolist/react-datagrid
+```
+
+> [!NOTE]
+> Previous package name: `@revolist/revogrid-react` was renamed to `@revolist/react-datagrid`.
+
+
+
+## How to use
+
+### Simplest Usage
+
 ```tsx
-// App.tsx
+import { useState } from 'react'
+import { RevoGrid } from '@revolist/react-datagrid'
+
+/**
+ * note: columns & source need a "stable" reference in order to prevent infinite re-renders
+ */
+const columns = [
+  { prop: 'name', name: 'First' },
+  { prop: 'details', name: 'Second' },
+]
+
+function App() {
+  const [source] = useState([
+    { name: '1', details: 'Item 1' },
+    { name: '2', details: 'Item 2' },
+  ]);
+  return (<RevoGrid columns={columns} source={source} />)
+}
+export default App
+
+```
+
+### Cell Template Usage
+
+```tsx
 import { useState } from 'react';
-import { RevoGrid, Template, Editor, type EditorType, type ColumnDataSchemaModel, type Editors } from '@revolist/react-datagrid';
+import { RevoGrid, Template, type ColumnDataSchemaModel } from '@revolist/react-datagrid';
 
 /**
  * Custom cell component
@@ -145,6 +184,27 @@ import { RevoGrid, Template, Editor, type EditorType, type ColumnDataSchemaModel
 const Cell = ({ model, prop, value }: ColumnDataSchemaModel) => {
   return <div><strong>{value}</strong></div>;
 };
+/**
+ * note: columns & source need a "stable" reference in order to prevent infinite re-renders
+ */
+const columns = [
+  { prop: 'name', name: 'First', cellTemplate: Template(Cell) },
+];
+
+function App() {
+  const [source] = useState([{ name: '1' }, { name: '2' }]);
+  return (<RevoGrid columns={columns} source={source} />)
+}
+export default App
+
+```
+
+### Editor Usage
+
+```tsx
+// App.tsx
+import { useState } from 'react';
+import { RevoGrid, Editor, type EditorType, type Editors } from '@revolist/react-datagrid';
 
 /**
  * Custom editor component
@@ -153,8 +213,7 @@ const Button = ({ close } : EditorType) => {
   return <button onClick={close}>Close</button>
 };
 
-const MY_EDITOR = 'custom-editor';
-const gridEditors: Editors = { [MY_EDITOR]: Editor(Button) };
+const gridEditors: Editors = { ['custom-editor']: Editor(Button) };
 
 /**
  * note: columns & source need a "stable" reference in order to prevent infinite re-renders
@@ -162,13 +221,8 @@ const gridEditors: Editors = { [MY_EDITOR]: Editor(Button) };
 const columns = [
   {
     prop: 'name',
-    name: 'First',
-    editor: MY_EDITOR,
-    cellTemplate: Template(Cell),
-  },
-  {
-    prop: 'details',
-    name: 'Second',
+    name: 'Custom editor',
+    editor: 'custom-editor',
   },
 ];
 
@@ -177,18 +231,21 @@ function App() {
     { name: '1', details: 'Item 1' },
     { name: '2', details: 'Item 2' },
   ]);
-  return (
-    <>
-      <RevoGrid columns={columns} source={source} editors={gridEditors} />
-    </>
-  )
+  return (<RevoGrid columns={columns} source={source} editors={gridEditors} />)
 }
 
 export default App
 
 ```
 
+
 [Example and guide](https://rv-grid.com/guide/react/)
+
+
+
+
+> [!CAUTION]
+>  Repository Notice: This repo is read-only. Create new issues at the [revogrid repo](https://github.com/revolist/revogrid)
 
 
 
