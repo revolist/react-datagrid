@@ -1,5 +1,10 @@
 # React Data Grid adapter for RevoGrid
 
+
+> [!NOTE]
+>  Repository Notice: This repo is read-only. Create new issues at the [revogrid repo](https://github.com/revolist/revogrid)
+
+
 <p align="center">
   <a href="https://rv-grid.com">
     <img src="./assets/logo.svg" alt="React Data Grid" height="150" />
@@ -240,12 +245,6 @@ export default App
 
 
 [Example and guide](https://rv-grid.com/guide/react/)
-
-
-
-
-> [!CAUTION]
->  Repository Notice: This repo is read-only. Create new issues at the [revogrid repo](https://github.com/revolist/revogrid)
 
 
 
