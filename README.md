@@ -118,7 +118,7 @@ Support Millions of cells and thousands of columns easy and efficiently for fast
 
 - **Rich API & Additional Improvements**: Explore hundreds of other small customizations and improvements in [RevoGrid](https://rv-grid.com/).
 
-### Install your React Data Grid
+## Installation
 
 
 With NPM:
@@ -150,7 +150,7 @@ bun add @revolist/react-datagrid
 
 
 
-## How to use
+## Basic Usage
 
 ### Simplest Usage
 
