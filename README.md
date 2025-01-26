@@ -1,4 +1,4 @@
-# React Data Grid adapter for RevoGrid
+# React Data Grid minimalist adapter
 
 
 > [!NOTE]
