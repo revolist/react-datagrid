@@ -43,3 +43,25 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           npm_token: ${{ secrets.NPM_TOKEN }}
+  publish-secondary-name:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/checkout@v4
+          with:
+            repository: revolist/revogrid-actions
+            ref: main
+            path: ./actions
+            token: ${{ secrets.REPO_TOKEN }}
+
+        - name: Update package.json for secondary name
+          run: |
+            sed -i 's/"name": "@revolist\/react-datagrid"/"name": "@revolist\/revogrid-react"/' package.json
+          shell: bash
+
+        - name: Publish secondary package
+          uses: ./actions/publish-pkg
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            npm_token: ${{ secrets.NPM_TOKEN }}
