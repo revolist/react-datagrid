@@ -1,10 +1,5 @@
 # React Data Grid minimalist adapter
 
-
-> [!NOTE]
->  Repository Notice: This repo is read-only. Create new issues at the [revogrid repo](https://github.com/revolist/revogrid)
-
-
 <p align="center">
   <a href="https://rv-grid.com">
     <img src="./assets/logo.svg" alt="React Data Grid" height="150" />
@@ -117,6 +112,10 @@ Support Millions of cells and thousands of columns easy and efficiently for fast
   - [Cell editor](https://rv-grid.com/guide/react/editor) (use predefined or apply your own custom editors and cell types).
 
 - **Rich API & Additional Improvements**: Explore hundreds of other small customizations and improvements in [RevoGrid](https://rv-grid.com/).
+
+
+> ⚠️ **Note**: Repository Notice: This repo is read-only. Create new issues at the [revogrid repo](https://github.com/revolist/revogrid)
+
 
 ## Installation
 
@@ -247,6 +246,12 @@ export default App
 [Example and guide](https://rv-grid.com/guide/react/)
 
 
+
+- [![VueJs](./assets/vuejs.svg) Vue 3](https://rv-grid.com/guide/vue3/) and [Vue 2](https://rv-grid.com/guide/vue2/)
+- [![React](./assets/react.svg) React](https://rv-grid.com/guide/react/)
+- [![Angular](./assets/angular.svg) Angular](https://rv-grid.com/guide/angular/)
+- [![Svelte](./assets/svelte.svg) Svelte](https://rv-grid.com/guide/svelte/)
+- [![JavaScript](./assets/js.svg) JavaScript](https://rv-grid.com/guide/)
 
 ## Versions
 
