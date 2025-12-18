@@ -28,16 +28,10 @@ function App() {
       name: 'Second',
     },
   ];
-  const source = [
-    {
-      name: '1',
-      details: 'Item 1',
-    },
-    {
-      name: '2',
-      details: 'Item 2',
-    },
-  ];
+  const source = Array.from({ length: 1000 }, (_, i) => ({
+    name: String(i + 1),
+    details: `Item ${i + 1}`,
+  }));
   // Register custom editor
   const gridEditors: Editors = { [MY_EDITOR]: Editor(ButtonEditor) };
   return (
