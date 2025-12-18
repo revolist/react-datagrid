@@ -5,7 +5,11 @@ import type {
   VNode,
   EditorBase,
 } from '@revolist/revogrid';
-import { ReactElement, RenderedComponent, TemplateConstructor } from './renderer';
+import {
+  ReactElement,
+  RenderedComponent,
+  TemplateConstructor,
+} from './renderer';
 import type { ComponentType } from 'react';
 
 /**
@@ -41,21 +45,25 @@ export class EditorAdapter implements EditorBase {
   render(h: HyperFunc<VNode>) {
     return h('span', {
       key: `${this.column.prop}-${this.editCell?.rowIndex || 0}`,
-      ref: (el: ReactElement) => 
-        this.renderedComponent = TemplateConstructor(
-          el,
-          this.EditorComponent,
-          {
-            ...this.editCell,
-            column: this.column,
-            save: this.save,
-            close: this.close,
-          },
-          this.renderedComponent,
-        ),
-      });
-    }
+      ref: (el: ReactElement) => {
+        const key = `${this.column.prop}-${this.editCell?.rowIndex || 0}`;
+        if (!el) {
+          this.renderedComponent?.destroy();
+          this.renderedComponent = null;
+        } else {
+          this.renderedComponent = TemplateConstructor(
+            el,
+            this.EditorComponent,
+            {
+              ...this.editCell,
+              column: this.column,
+              save: this.save,
+              close: this.close,
+            },
+            key,
+          );
+        }
+      },
+    });
+  }
 }
-
-
-

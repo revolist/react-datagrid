@@ -7,7 +7,10 @@ import type { EditorType } from '@revolist/react-datagrid';
 export const ButtonEditor = forwardRef(({ close, column }: EditorType, ref) => {
   useEffect(() => {
     console.log('Editor did mount');
-  });
+    return () => {
+      console.log('Editor did unmount');
+    };
+  }, []);
 
   return <button onClick={() => close()}>Close {column.value}</button>;
 });
