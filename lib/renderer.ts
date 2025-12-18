@@ -11,22 +11,18 @@ export interface RenderedComponent<T> {
 }
 
 export function TemplateConstructor<T = ColumnDataSchemaModel>(
-  el: ReactElement | null,
+  el: ReactElement,
   ReactComponent: ComponentType<any>,
   initialProps: T,
-  lastEl: RenderedComponent<T> | null = null,
+  key: string,
 ): RenderedComponent<T> | null {
-  if (!el) {
-    lastEl?.destroy?.();
-    return null;
-  }
 
   // Create a root if it doesn't exist
   if (!el._root) {
     el._root = createRoot(el);
   }
   const renderComponent = (props: T) => {
-    const vNode = createElement(ReactComponent, props);
+    const vNode = createElement(ReactComponent, { ...props, key });
     el._root?.render(vNode);
   };
   // Initial render
@@ -55,13 +51,16 @@ export const Template = (
     return (h: HyperFunc<VNode>, p: ColumnDataSchemaModel | ColumnTemplateProp, addition?: any) => {
       const props = customProps ? { ...customProps, ...p } : p;
       props.addition = addition;
+      const key = `${p.prop}-${p.rowIndex || 0}`;
       let lastEl: RenderedComponent<ColumnDataSchemaModel> | null = null;
       return h('span', {
-        key: `${p.prop}-${p.rowIndex || 0}`,
         ref: (el: ReactElement | null) => {
-            lastEl = TemplateConstructor(el, ReactComponent, props, lastEl);
-        }
+            if (!el) {
+              lastEl?.destroy?.();
+            } else {
+              lastEl = TemplateConstructor(el, ReactComponent, props, key);
+            }
+        },
       });
     };
   };
-  
