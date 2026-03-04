@@ -67,7 +67,7 @@
     "@revolist/revogrid": "4.20.5"
   },
   "devDependencies": {
-    "@stencil/core": "^4.17.1",
+    "@stencil/core": "^4.43.2",
     "@types/node": "^25.0.3",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
