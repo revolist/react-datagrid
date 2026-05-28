@@ -13,12 +13,21 @@
   <img src="https://badgen.net/bundlephobia/tree-shaking/@revolist/revogrid" alt="Tree shaking"/>
   <img src="https://img.shields.io/bundlephobia/min/@revolist/revogrid" alt="Bundle size"/>
   <img src="https://sonarcloud.io/api/project_badges/measure?project=revolist_revogrid&metric=alert_status" alt="Sonar Quality Gate"/>
+  <a href="https://github.com/revolist/revogrid/actions/workflows/unit.yml">
+        <img src="https://github.com/revolist/revogrid/actions/workflows/unit.yml/badge.svg" alt="Workflow status badge" loading="lazy" height="20">
+  </a>
+  <a href="https://github.com/revolist/revogrid/actions/workflows/e2e.yml">
+        <img src="https://github.com/revolist/revogrid/actions/workflows/e2e.yml/badge.svg" alt="Workflow status badge" loading="lazy" height="20">
+  </a>
 </p>
 
 
 <h3 align="center">Powerful React Data Grid component built on top of <a href="https://github.com/revolist/revogrid" target="_blank">RevoGrid</a>.</h3>
 <p align="center">
-Support Millions of cells and thousands of columns easy and efficiently for fast data rendering. Easy to use.
+Render 1M+ rows, millions of cells, and thousands of columns efficiently with no hard row limit in the grid.
+</p>
+<p align="center">
+Used by some of the largest companies in Europe and the United States.
 </p>
 
 <p align="center">
@@ -37,7 +46,7 @@ Support Millions of cells and thousands of columns easy and efficiently for fast
 
 ## Key Features
 
-- **High Performance**: Handles millions of cells in the viewport with a powerful core built by default.
+- **High Performance**: Render 1M+ rows and millions of cells with no hard row limit in the grid. Virtualization keeps the DOM focused on the visible viewport.
 
 - **[Accessibility](https://rv-grid.com/guide/wcag)**: Follows WAI-ARIA best practices.
 
@@ -52,7 +61,7 @@ Support Millions of cells and thousands of columns easy and efficiently for fast
 
 - **[Intelligent Virtual DOM](https://rv-grid.com/guide/overview#VNode-Reactive-DOM)**: Smart row recombination to minimize redraws.
 
-- **[Virtual Scroll](https://rv-grid.com/guide/viewports)**: Handles large datasets with infinite scroll.
+- **[Virtual Scroll](https://rv-grid.com/guide/viewports)**: Handles large datasets without rendering every row or column into the DOM.
 
 - **[Drag and Drop](https://rv-grid.com/guide/row/order)**: Drag and drop in [rows](https://rv-grid.com/guide/row/order) and [columns](https://rv-grid.com/guide/column/order).
 
@@ -105,20 +114,17 @@ Support Millions of cells and thousands of columns easy and efficiently for fast
 
 - **[Plugin System](https://rv-grid.com/guide/plugin/)**: Create custom plugins or extend existing ones easily.
 
-- **[Formula Support](https://rv-grid.com/guide/cell/formula)**: Evaluate formulas in cell data with Excel-like syntax, including basic arithmetic, statistical functions, and cell references.
-- **[Pivot Table](https://rv-grid.com/demo/pivot)**: Transform and analyze data dynamically with drag-and-drop field arrangement, aggregation functions, and interactive filtering capabilities.
-
-- **[Master Detail/Subtables/Forms](https://rv-grid.com/guide/row/master.pro)**: Expand rows to reveal child data.
-- **[Cell/Column/Row Span/Merge](https://rv-grid.com/guide/cell/merge)**: Merge cells to form groups.
-- **Auto Merge**: Automatically merges cells with identical values in a column.
-- **Form editig**: Edit forms directly within the grid, featuring all necessary fields, including custom options and markdown support for a fast and enhanced data entry experience.
-
 - **Customizations**:
   - [Column header template](https://rv-grid.com/guide/column/header.template).
   - [Row header template](https://rv-grid.com/guide/row/headers).
   - [Cell properties](https://rv-grid.com/guide/cell/) (define custom properties for rendered cells).
-  - Nested grids: Build a grid inside a grid, showcasing advanced editing options and user interactions for a more dynamic data presentation.
-  - Context Menu: Build context menus for any grid element - from cells to headers. Cut, copy, paste, add rows, modify columns, and more. Fully customizable with your own actions and behaviors.
+  - [Cell template](https://rv-grid.com/guide/cell/renderer) (create your own cell views).
+  - [Cell editor](https://rv-grid.com/guide/cell/editor) (use predefined or apply your own custom editors and cell types).
+
+- **[AI Agents and MCP](https://rv-grid.com/guide/mcp)**: Connect Codex, Cursor, Claude Code, and VS Code to version-aware RevoGrid docs, examples, migrations, feature availability, and typed API context.
+
+- **Rich API & Additional Improvements**: Explore hundreds of other small customizations and improvements in [RevoGrid](https://rv-grid.com/).
+
 
   - [Cell template](https://rv-grid.com/guide/react/renderer) (create your own cell views).
   - [Cell editor](https://rv-grid.com/guide/react/editor) (use predefined or apply your own custom editors and cell types).
@@ -319,6 +325,29 @@ We would like to extend our heartfelt gratitude to our sponsors for their genero
 If you or your company would like to support the ongoing development of RevoGrid, please consider [![Sponsor Us](https://img.shields.io/badge/Sponsor%20Us-%F0%9F%92%96-brightgreen)](https://opencollective.com/revogrid) or use a [Pro version](https://rv-grid.com/pro/). Your support will help us continue to improve the project and provide the best possible tool for the community.
 
 Thank you for supporting RevoGrid! 🙏
+
+
+## Testing
+
+[![Unit Tests](https://github.com/revolist/revogrid/actions/workflows/ci-unit.yml/badge.svg?branch=main)](https://github.com/revolist/revogrid/actions/workflows/ci-unit.yml)
+[![E2E Tests](https://github.com/revolist/revogrid/actions/workflows/ci-e2e.yml/badge.svg?branch=main)](https://github.com/revolist/revogrid/actions/workflows/ci-e2e.yml)
+
+RevoGrid is thoroughly tested to ensure reliability and stability.
+
+| Suite | Command | Scope |
+|---|---|---|
+| Unit | `npm run test` | Services, utilities, pure logic |
+| E2E (Playwright) | `npm run test:e2e` | Real browser rendering & interaction |
+
+### E2E Tests
+
+End-to-end tests use [@stencil/playwright](https://www.npmjs.com/package/@stencil/playwright) to run `<revo-grid>` in a real Chromium browser. The dev server starts automatically when you run:
+
+```bash
+npm run test:e2e
+```
+
+Test files live in `e2e/` and share helpers from `e2e/helpers.ts`:
 
 
 ## Contributing
