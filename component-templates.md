@@ -1,29 +1,22 @@
-# Component content templates
+# Framework content templates
 
-Call `useTemplates()` in a component beneath the providers to inherit. Create
-stable definitions with `useMemo` and render one `RevoTemplateOutlet` before the
-products using those definitions. Portals preserve normal React Context.
+`useTemplates()` is a thin wrapper around the existing framework `Template` factory. It returns ordinary template callbacks for cells, master rows, Kanban cards, and Gantt labels. There is no outlet or separate mounting protocol.
 
-```tsx
-import { useTemplates, RevoTemplateOutlet } from '@revolist/react-datagrid';
+```ts
+import { useTemplates } from '@revolist/react-datagrid';
+import type { CellTemplateProp } from '@revolist/revogrid';
 
 const templates = useTemplates();
-const cardContent = useMemo(() => templates.template<MyCardContext>(MyCard), [templates]);
-return <><RevoTemplateOutlet owner={templates} /><MyBoard cardContent={cardContent} /></>;
+const content = templates.template<CellTemplateProp>(MyCell, {
+  props: context => ({ item: context.model }),
+  key: context => context.model.id,
+});
 ```
 
-Components receive a `context` prop. Use `{ props: context => ({ item: context.card }) }`
-to adapt existing props. Updates replace props; removed props are cleared. Owner
-cleanup supports React StrictMode effect replay and Suspense hiding/reveal.
-Synchronous template updates publish one shared snapshot in the next microtask. Offscreen components unmount;
-keep durable state in application data. `dispose()` releases all portal entries.
+Without `props`, the component receives a `context` prop/input. The optional `key` selects record identity when hosts are reused. Supply a stable key for cells whose records may reorder. Mapped props are recomputed when the product invokes the callback, and omitted props are cleared.
 
-Use Core `asCellTemplate(definition, { key: p => p.model.id })` for cells,
-`masterRow.template` for master details, `customization.cardContent` for Kanban,
-and `gantt.visuals.taskBarContent` for Gantt labels. Product interaction controls
-remain outside the custom content. The legacy Gantt content hook takes precedence.
-Exports retain the default product representation.
+Use the returned callback directly as `column.cellTemplate`, `masterRow.template`, `customization.cardContent`, or `gantt.visuals.taskBarContent`. Product progress, resize, dependency, selection and drag controls remain outside the custom content. The legacy Gantt content hook takes precedence. Exports retain the default product representation.
 
-Existing `Template`, `Editor` and `EditorAdapter` APIs are unchanged. These
-new helpers require the Core build providing the component-template exports;
-release Core before publishing consuming integrations.
+React templates use the existing per-host roots. Pass app state and callbacks explicitly through mapped props; surrounding React Context does not cross those roots. Keep template definitions stable with useMemo.
+
+Templates use the existing renderer’s ref cleanup and product caching behavior; `useTemplates` adds no lifecycle management. Existing `Template` and editor signatures remain available; their default cell prop shape is unchanged.

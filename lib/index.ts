@@ -20,4 +20,4 @@ export {
 } from './renderer';
 export { Editor } from './editor';
 
-export { useTemplates, RevoTemplateOutlet, type ReactTemplateOwner } from './component-template';
+export { useTemplates, type ReactTemplateOwner } from './component-template';

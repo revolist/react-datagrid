@@ -23,8 +23,7 @@ export default defineConfig({
         globals: {
           'react': 'React',
           'react-dom/client': 'ReactDOM',
-          'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'ReactJSXR',
+            'react/jsx-runtime': 'ReactJSXR',
           '@revolist/revogrid': 'Revogrid',
           '@revolist/revogrid/loader': 'RevogridLoader',
         },

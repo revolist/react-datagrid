@@ -44,15 +44,15 @@ export function TemplateConstructor<T = ColumnDataSchemaModel>(
 /**
  * Render React component in Grid column template.
  */
-export const Template = (
+export const Template = <C = ColumnDataSchemaModel | ColumnTemplateProp>(
     ReactComponent: ComponentType<ColumnDataSchemaModel | ColumnTemplateProp>,
     customProps?: any,
+    options?: { props?: (context: C) => Record<string, any>; key?: (context: C) => string | number },
   ) => {
-    return (h: HyperFunc<VNode>, p: ColumnDataSchemaModel | ColumnTemplateProp, addition?: any) => {
-      const props = customProps ? { ...customProps, ...p } : p;
-      props.addition = addition;
-      const key = `${p.prop}-${p.rowIndex || 0}`;
-      let lastEl: RenderedComponent<ColumnDataSchemaModel> | null = null;
+    return (h: HyperFunc<VNode>, p: C, addition?: any) => {
+      const props = options?.props ? options.props(p) : { ...customProps, ...p, addition };
+      const key = String(options?.key?.(p) ?? `${(p as any).prop}-${(p as any).rowIndex || 0}`);
+      let lastEl: RenderedComponent<any> | null = null;
       return h('span', {
         ref: (el: ReactElement | null) => {
             if (!el) {
