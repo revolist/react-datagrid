@@ -19,3 +19,5 @@ export {
   type RenderedComponent,
 } from './renderer';
 export { Editor } from './editor';
+
+export { useTemplates, RevoTemplateOutlet, type ReactTemplateOwner } from './component-template';
